@@ -14,6 +14,7 @@
     "declarationMap": true,
     "sourceMap": true,
     "noUnusedLocals": true,
+    "types": ["node"],
     "noUnusedParameters": true,
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true
