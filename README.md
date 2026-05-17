@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 # ⚡ Smart Leads Dashboard
 
 Full-stack MERN Lead Management Dashboard with TypeScript.
