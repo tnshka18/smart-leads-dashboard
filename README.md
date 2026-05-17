@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # ⚡ Smart Leads Dashboard
 
 Full-stack MERN Lead Management Dashboard with TypeScript.
@@ -80,3 +81,6 @@ Query params for GET /leads: `page, limit, status, source, search, sort`
 - Stats Dashboard
 - Dark Mode UI
 - Docker ready
+=======
+# smart-leads-dashboard
+>>>>>>> e133f6af02b488236c845dc0aea2cc72f1684b06
