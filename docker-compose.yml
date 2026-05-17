@@ -1,0 +1,55 @@
+version: '3.9'
+
+services:
+  mongodb:
+    image: mongo:7.0
+    container_name: leads-mongodb
+    restart: unless-stopped
+    ports:
+      - '27017:27017'
+    environment:
+      MONGO_INITDB_DATABASE: smart-leads-dashboard
+    volumes:
+      - mongodb_data:/data/db
+    networks:
+      - leads-network
+
+  server:
+    build:
+      context: ./server
+      dockerfile: Dockerfile
+    container_name: leads-server
+    restart: unless-stopped
+    ports:
+      - '5000:5000'
+    environment:
+      NODE_ENV: production
+      PORT: 5000
+      MONGODB_URI: mongodb://mongodb:27017/smart-leads-dashboard
+      JWT_SECRET: smartleads_super_secret_jwt_key_change_in_production_2024
+      JWT_EXPIRES_IN: 7d
+      CLIENT_URL: http://localhost:5173
+    depends_on:
+      - mongodb
+    networks:
+      - leads-network
+
+  client:
+    build:
+      context: ./client
+      dockerfile: Dockerfile
+    container_name: leads-client
+    restart: unless-stopped
+    ports:
+      - '5173:80'
+    depends_on:
+      - server
+    networks:
+      - leads-network
+
+volumes:
+  mongodb_data:
+
+networks:
+  leads-network:
+    driver: bridge

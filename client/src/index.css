@@ -1,0 +1,106 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --bg: #0d0f14;
+    --bg2: #13161d;
+    --bg3: #1a1e28;
+    --bg4: #20263a;
+    --border: #2a3148;
+    --border2: #3a4568;
+    --text: #e8ecf4;
+    --text2: #8892a8;
+    --text3: #5a6480;
+    --accent: #4f7dff;
+    --green: #22c987;
+    --amber: #f59e1a;
+    --red: #f25757;
+  }
+
+  * {
+    @apply box-border;
+  }
+
+  body {
+    @apply antialiased;
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+  }
+
+  ::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--border2);
+    border-radius: 3px;
+  }
+}
+
+@layer components {
+  .card {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium text-white transition-all;
+    background: var(--accent);
+  }
+  .btn-primary:hover {
+    background: #3a68e0;
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-all;
+    background: var(--bg3);
+    color: var(--text2);
+    border: 1px solid var(--border);
+  }
+  .btn-ghost:hover {
+    background: var(--bg4);
+    color: var(--text);
+    border-color: var(--border2);
+  }
+
+  .input-field {
+    @apply w-full rounded-lg px-3 py-2 text-sm outline-none transition-all;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    color: var(--text);
+  }
+  .input-field::placeholder {
+    color: var(--text3);
+  }
+  .input-field:focus {
+    border-color: var(--accent);
+  }
+
+  .badge-new {
+    @apply inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-semibold;
+    background: rgba(79, 125, 255, 0.12);
+    color: #4f7dff;
+  }
+  .badge-contacted {
+    @apply inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-semibold;
+    background: rgba(245, 158, 26, 0.12);
+    color: #f59e1a;
+  }
+  .badge-qualified {
+    @apply inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-semibold;
+    background: rgba(34, 201, 135, 0.12);
+    color: #22c987;
+  }
+  .badge-lost {
+    @apply inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-semibold;
+    background: rgba(242, 87, 87, 0.12);
+    color: #f25757;
+  }
+}
